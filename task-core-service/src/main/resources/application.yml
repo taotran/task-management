@@ -1,0 +1,65 @@
+###
+#   Server config
+###
+
+server:
+  port: 8080
+
+
+###
+#   Database Settings
+###
+spring:
+  application:
+    name: task-core-micro-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/springmongosec
+    username: root
+    password:
+    driver-class-name: com.mysql.jdbc.Driver
+
+jpa:
+  properties:
+    hibernate:
+      show_sql: true
+      format_sql: true
+
+###
+#   H2 Settings
+###
+#h2:
+#  console:
+#    enabled: true
+#    path: /console
+#    settings:
+#      trace: false
+#      web-allow-others: false
+
+
+###
+#   Kafka Settings
+###
+kafka:
+#  bootstrap-servers: localhost:9092, localhost:9093
+#  bootstrap-servers: 172.16.50.70:32774, 172.16.50.70:32775
+#  bootstrap-servers: 172.16.50.70:32768
+  topic:
+    task: tasktopic
+    user: usertopic
+
+###
+#   Logging configuration
+###
+logging:
+  level:
+    org.apache.kafka: debug
+    com.pycogroup.taotran.service: debug
+    com.pycogroup.taotran.rest: debug
+    org.springframework.web: debug
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6789/eureka
+  instance:
+    prefer-ip-address: true

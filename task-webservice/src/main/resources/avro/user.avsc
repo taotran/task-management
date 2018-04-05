@@ -1,0 +1,29 @@
+{"namespace": "com.pycogroup.taotran.task.management.ws.avroentity",
+    "type": "record",
+    "name": "User",
+    "fields": [
+        {"name":"id", "type":"string"},
+        {"name":"username", "type":"string"},
+        {"name":"password", "type":"string"},
+        {"name":"age", "type":"int"},
+        {"name":"accountNonExpired", "type":"boolean"},
+        {"name":"accountNonLocked", "type":"boolean"},
+        {"name":"credentialsNonExpired", "type":"boolean"},
+        {"name":"enabled", "type":"boolean"},
+        {"name":"grantedAuthorities", "type": {
+                                                "type":"array",
+                                                "items": {
+                                                            "type":"record",
+                                                            "name":"GrantedAuthority",
+                                                            "fields":
+                                                            [
+                                                                {
+                                                                    "name":"authority",
+                                                                    "type":"string"
+                                                                }
+                                                            ]
+                                                        }
+                                              }
+        }
+    ]
+}

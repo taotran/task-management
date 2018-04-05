@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "createdDate": null,
+    "updatedDate": null,
+    "username": "testUser11",
+    "password": "abcdef",
+    "age": 8,
+    "taskList": null,
+    "accountNonExpired": true,
+    "accountNonLocked": true,
+    "credentialsNonExpired": true,
+    "enabled": true,
+    "authorities": []
+  },
+  {
+    "id": "2",
+    "createdDate": null,
+    "updatedDate": null,
+    "username": "testUser2",
+    "password": "abcdefg",
+    "age": 9,
+    "taskList": null,
+    "accountNonExpired": true,
+    "accountNonLocked": true,
+    "credentialsNonExpired": true,
+    "enabled": true,
+    "authorities": []
+  }
+]

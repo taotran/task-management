@@ -1,0 +1,48 @@
+
+
+server:
+  port: 8090
+spring:
+  application:
+    name: task-client-micro-service
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springmongosec_client
+    username: root
+    password:
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    generate-ddl: true
+    ddl-auto: update
+
+
+
+
+###
+#   Kafka settings
+###
+kafka:
+#  bootstrap-servers: 172.16.50.70:32770, 172.16.50.70:32769, 172.16.50.70:32768
+#  bootstrap-servers: localhost:9092, localhost:9093
+  topic:
+    task: tasktopic
+    user: usertopic
+security:
+  basic:
+    enabled: false
+
+###
+#   Logging configuration
+###
+logging:
+  level:
+    com.pycogroup.taotran: debug
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6789/eureka
+  instance:
+    prefer-ip-address: true

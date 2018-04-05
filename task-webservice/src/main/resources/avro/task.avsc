@@ -1,0 +1,13 @@
+{"namespace": "com.pycogroup.taotran.task.management.ws.avroentity",
+    "type": "record",
+    "name": "Task",
+    "fields": [
+        {"name":"id", "type":"string"},
+        {"name":"title", "type":"string"},
+        {"name":"description", "type":"string"},
+        {"name":"dueDate", "type":"long"},
+        {"name":"priority", "type":"string"},
+        {"name":"createdDate", "type":"long"},
+        {"name":"updatedDate", "type":"long"}
+    ]
+}
