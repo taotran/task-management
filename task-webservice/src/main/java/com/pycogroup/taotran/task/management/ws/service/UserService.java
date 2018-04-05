@@ -1,5 +1,8 @@
 package com.pycogroup.taotran.task.management.ws.service;
 
+import com.pycogroup.taotran.task.management.ws.entity.User;
+import com.pycogroup.taotran.task.management.ws.rest.UserFeignClientResource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +20,9 @@ public class UserService {
 
     private final RestTemplate restTemplate;
 
+//    @Autowired
+//    private UserFeignClientResource userFeignClientResource;
+
     public UserService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
@@ -26,4 +32,9 @@ public class UserService {
 
         return toList(objects.getBody());
     }
+
+
+//    public List<User> findAllUsingFeign() {
+//        return userFeignClientResource.getUsers();
+//    }
 }

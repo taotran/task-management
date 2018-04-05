@@ -3,6 +3,7 @@ package com.pycogroup.taotran.task.management.ws.rest;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.pycogroup.taotran.task.management.ws.config.custom.EnableAuthentication;
 import com.pycogroup.taotran.task.management.ws.entity.ErrorEntity;
+import com.pycogroup.taotran.task.management.ws.entity.User;
 import com.pycogroup.taotran.task.management.ws.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
@@ -46,6 +48,7 @@ public class UserConsumerResource {
     public ResponseEntity<?> consumeUsers(@EnableAuthentication(adminAuth = true) String authString) {
 
         return new ResponseEntity<>(userService.findAll(buildHttpRequest(authString)), HttpStatus.OK);
+//        return new ResponseEntity<>(userService.findAllUsingFeign(), HttpStatus.OK);
     }
 
     @PostMapping

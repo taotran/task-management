@@ -46,3 +46,6 @@ eureka:
       defaultZone: http://localhost:6789/eureka
   instance:
     prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: false
