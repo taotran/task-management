@@ -63,3 +63,8 @@ eureka:
       defaultZone: http://localhost:6789/eureka
   instance:
     prefer-ip-address: true
+
+elasticsearch:
+  clustername: test-cluster
+  host: 127.0.0.1
+  port: 9300

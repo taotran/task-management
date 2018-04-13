@@ -35,20 +35,20 @@ public class UserResource extends BaseKafkaResource<User, com.pycogroup.taotran.
         final User u = responseEntity.getBody();
 
 
-        final com.pycogroup.taotran.task.management.core.avroentity.User sendingUser =
-                com.pycogroup.taotran.task.management.core.avroentity.User.newBuilder()
-                        .setId(u.getId())
-                        .setUsername(u.getUsername())
-                        .setPassword(u.getPassword())
-                        .setAge(u.getAge())
-                        .setCredentialsNonExpired(u.isCredentialsNonExpired())
-                        .setAccountNonExpired(u.isAccountNonExpired())
-                        .setAccountNonLocked(u.isAccountNonLocked())
-                        .setEnabled(u.isEnabled())
-                        .setGrantedAuthorities(new ArrayList<>())
-                        .build();
-
-        sender.send(sendingUser);
+//        final com.pycogroup.taotran.task.management.core.avroentity.User sendingUser =
+//                com.pycogroup.taotran.task.management.core.avroentity.User.newBuilder()
+//                        .setId(u.getId())
+//                        .setUsername(u.getUsername())
+//                        .setPassword(u.getPassword())
+//                        .setAge(u.getAge())
+//                        .setCredentialsNonExpired(u.isCredentialsNonExpired())
+//                        .setAccountNonExpired(u.isAccountNonExpired())
+//                        .setAccountNonLocked(u.isAccountNonLocked())
+//                        .setEnabled(u.isEnabled())
+//                        .setGrantedAuthorities(new ArrayList<>())
+//                        .build();
+//
+//        sender.send(sendingUser);
 
         return responseEntity;
     }

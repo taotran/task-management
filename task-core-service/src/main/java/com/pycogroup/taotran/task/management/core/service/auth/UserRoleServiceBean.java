@@ -5,6 +5,7 @@ import com.pycogroup.taotran.task.management.core.entity.User;
 import com.pycogroup.taotran.task.management.core.entity.UserRole;
 import com.pycogroup.taotran.task.management.core.repository.UserRoleRepository;
 import com.pycogroup.taotran.task.management.core.service.DocumentServiceBean;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class UserRoleServiceBean extends DocumentServiceBean<UserRole> implement
     }
 
     @Override
-    public List<UserRole> findAllByUser(User user) {
-        return userRoleRepository.findAllByUser(user);
+    public List<UserRole> findAllByUser(User user, Pageable pageable) {
+        return userRoleRepository.findAllByUser(user, pageable);
     }
 }

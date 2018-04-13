@@ -3,6 +3,7 @@ package com.pycogroup.taotran.task.management.core.entity;
 import com.pycogroup.taotran.task.management.core.custom.cascade.CascadeSave;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -21,12 +22,14 @@ import java.util.List;
 
 
 @Document(collection = "user")
+@org.springframework.data.elasticsearch.annotations.Document(indexName = "user", type = "user", shards = 1, replicas = 0, refreshInterval = "-1")
 public class User extends AbstractDocument implements UserDetails {
 
     @Field
     @NotNull
     @NotBlank
     @Indexed(unique = true)
+//    @org.springframework.data.elasticsearch.annotations.Field(type = FieldType.String)
     private String username;
 
     @Field
@@ -58,6 +61,8 @@ public class User extends AbstractDocument implements UserDetails {
     @Field
     private boolean enabled;
 
+
+    private int index;
 
     public User() { // NOSONAR
         super();
@@ -141,6 +146,34 @@ public class User extends AbstractDocument implements UserDetails {
         return taskList;
     }
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    private boolean refresh;
+
+    public boolean isRefresh() {
+        return refresh;
+    }
+
+    public void setRefresh(boolean refresh) {
+        this.refresh = refresh;
+    }
+
+    private boolean searchSimilar;
+
+    public boolean isSearchSimilar() {
+        return searchSimilar;
+    }
+
+    public void setSearchSimilar(boolean searchSimilar) {
+        this.searchSimilar = searchSimilar;
+    }
+
     public static final class Builder {
 
         private String username;
@@ -208,6 +241,8 @@ public class User extends AbstractDocument implements UserDetails {
         public User build() {
             return new User(this);
         }
+
+
 
 
     }

@@ -2,6 +2,7 @@ package com.pycogroup.taotran.task.management.core.entity;
 
 import org.mongodb.morphia.annotations.PrePersist;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.FieldIndex;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.PreUpdate;
@@ -10,6 +11,7 @@ import java.util.Date;
 public class AbstractDocument implements IDocument {
 
     @Id
+//    @org.springframework.data.elasticsearch.annotations.Field(index = FieldIndex.analyzed)
     private String id;
 
     @Field

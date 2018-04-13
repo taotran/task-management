@@ -5,6 +5,7 @@ import com.pycogroup.taotran.task.management.core.entity.UserRole;
 import com.pycogroup.taotran.task.management.core.service.auth.UserRoleService;
 import com.pycogroup.taotran.task.management.core.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -40,7 +41,7 @@ public class MongoDbUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException(String.format("User %s is not found", username));
         }
 
-        final List<UserRole> userRoles = userRoleService.findAllByUser(user);
+        final List<UserRole> userRoles = userRoleService.findAllByUser(user, new PageRequest(0, 10));
 
         final List<GrantedAuthority> authorities = new ArrayList<>();
 

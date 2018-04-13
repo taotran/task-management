@@ -6,13 +6,17 @@ import com.pycogroup.taotran.task.management.core.entity.User;
 import com.pycogroup.taotran.task.management.core.entity.UserRole;
 import com.pycogroup.taotran.task.management.core.exception.DefaultRoleNotFoundException;
 import com.pycogroup.taotran.task.management.core.repository.UserRepository;
+import com.pycogroup.taotran.task.management.core.search.es.UserESRepository;
 import com.pycogroup.taotran.task.management.core.service.DocumentServiceBean;
 import com.pycogroup.taotran.task.management.core.service.auth.RoleService;
 import com.pycogroup.taotran.task.management.core.service.auth.UserRoleService;
 import com.querydsl.core.types.Predicate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -28,6 +32,8 @@ import java.util.List;
 @Service("userService")
 public class UserServiceBean extends DocumentServiceBean<User> implements UserService {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceBean.class);
+
     private final MongoOperations operations;
 
     private final UserRepository userRepository;
@@ -35,6 +41,12 @@ public class UserServiceBean extends DocumentServiceBean<User> implements UserSe
     private final RoleService roleService;
 
     private final UserRoleService userRoleService;
+
+    @Autowired
+    private UserESRepository userESRepository;
+
+    @Autowired
+    private ElasticsearchOperations elasticsearchTemplate;
 
     @Autowired
     public UserServiceBean(MongoOperations operations, UserRepository userRepository, RoleService roleService, UserRoleService userRoleService) {
@@ -64,6 +76,9 @@ public class UserServiceBean extends DocumentServiceBean<User> implements UserSe
         final UserRole ur = new UserRole(result, userRole);
 
         userRoleService.save(ur);
+
+//        userESRepository.index(user);
+//        elasticsearchOperations.index
 
         return user;
     }

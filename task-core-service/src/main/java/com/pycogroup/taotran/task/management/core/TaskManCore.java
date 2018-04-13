@@ -10,6 +10,7 @@ import org.springframework.context.annotation.PropertySource;
 @SpringBootApplication
 @EnableAutoConfiguration
 @EnableEurekaClient
+//@EnableJpaRepositories(basePackages = "com.pycogroup.taotran.task.management.core.repository")
 @PropertySource("classpath:/app.conf/appconfig.properties")
 public class TaskManCore {
 
