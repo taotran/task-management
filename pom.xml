@@ -21,6 +21,7 @@
         <module>task-core-service</module>
         <module>task-webservice</module>
         <module>task-eureka-server</module>
+        <module>task-zuul-gateway-proxy</module>
     </modules>
 
     <parent>

@@ -1,0 +1,20 @@
+server:
+  port: 9000
+zuul:
+  routes:
+    taskcore:
+      url: http://localhost:8080
+      stripPath: true
+
+    taskws:
+      url: http://localhost:8090
+      stripPath: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6789/eureka
+  instance:
+    prefer-ip-address: true
+security:
+  basic:
+    enabled: false
