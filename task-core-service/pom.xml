@@ -235,7 +235,7 @@
                 <version>${spring-cloud-contract.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <baseClassForTests>contract.verifier.ContractVerifierTestBase</baseClassForTests>
+                    <baseClassForTests>com.pycogroup.taotran.task.management.core.verifier.ContractVerifierTestBase</baseClassForTests>
                 </configuration>
             </plugin>
 
