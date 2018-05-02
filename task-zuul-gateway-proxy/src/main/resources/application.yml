@@ -15,6 +15,20 @@ eureka:
       defaultZone: http://localhost:6789/eureka
   instance:
     prefer-ip-address: true
+
 security:
   basic:
     enabled: false
+  oauth2:
+    sso:
+      login-path: /login
+    client:
+      access-token-uri: https://graph.facebook.com/oauth/access_token
+      user-authorization-uri: https://www.facebook.com/dialog/oauth
+      client-id: 233668646673605
+      client-secret: 33b17e044ee6a4fa383f46ec6e28ea1d
+      token-name: oauth_token
+      authentication-scheme: query
+      client-authentication-scheme: form
+    resource:
+      user-info-uri: https://graph.facebook.com/me

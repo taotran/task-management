@@ -59,8 +59,9 @@ public class UserConsumerResource {
         final ResponseEntity<String> responseEntity = restTemplate.postForEntity(USER_LIST, httpEntity, String.class);
     }
 
+    @SuppressWarnings("all")
     public ResponseEntity<?> reliable(String authString, Throwable e) {
-        LOGGER.debug(e.toString());
+        LOGGER.debug(e.getMessage());
         final String errorId = UUID.randomUUID().toString();
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new ErrorEntity(errorId

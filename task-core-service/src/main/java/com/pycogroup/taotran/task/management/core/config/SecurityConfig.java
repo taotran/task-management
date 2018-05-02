@@ -51,13 +51,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         configuration.setAllowCredentials(true);
 
-        configuration.addAllowedOrigin("*");
-        configuration.addAllowedHeader("*");
+        //@formatter:off
+        configuration.addAllowedOrigin("*"      );
+        configuration.addAllowedHeader("*"      );
         configuration.addAllowedMethod("OPTIONS");
-        configuration.addAllowedMethod("GET");
-        configuration.addAllowedMethod("PUT");
-        configuration.addAllowedMethod("POST");
-        configuration.addAllowedMethod("DELETE");
+        configuration.addAllowedMethod("GET"    );
+        configuration.addAllowedMethod("PUT"    );
+        configuration.addAllowedMethod("POST"   );
+        configuration.addAllowedMethod("DELETE" );
+        //@formatter:on
 
         corsConfigurationSource.registerCorsConfiguration("/**", configuration);
 
